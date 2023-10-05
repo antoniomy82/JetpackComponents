@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JetpackComponents</string>
+    <string name="test_strings">Esto es un ejemplo para BOX que es como un Frame Layout</string>
+</resources>
