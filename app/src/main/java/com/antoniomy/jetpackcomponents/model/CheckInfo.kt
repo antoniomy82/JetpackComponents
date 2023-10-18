@@ -1,4 +1,4 @@
-package com.antoniomy.jetpackcomponents
+package com.antoniomy.jetpackcomponents.model
 
 data class CheckInfo(
     val title: String,

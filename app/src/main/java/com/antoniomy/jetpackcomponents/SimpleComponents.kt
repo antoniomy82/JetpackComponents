@@ -1,6 +1,5 @@
 package com.antoniomy.jetpackcomponents
 
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -75,6 +74,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.antoniomy.jetpackcomponents.model.CheckInfo
 
 //Mixed components
 @Composable
