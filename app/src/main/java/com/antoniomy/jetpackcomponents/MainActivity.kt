@@ -58,32 +58,59 @@ class MainActivity : ComponentActivity() {
 
 
                     //showDialogs()
-                   // showRecyclerViews()
-                   // ScaffoldExample()
-                   // ScaffoldFabDocked()
-                 //   ExampleHamburger()
+                    // showRecyclerViews()
+                    // ScaffoldExample()
+                    // ScaffoldFabDocked()
+                    //   ExampleHamburger()
                     val navigationController = rememberNavController()
-                    NavHost(navController = navigationController, startDestination = NavRoutes.Screen1.id){
-                        composable(NavRoutes.Screen1.id){ Screen1(navigationController)}
-                        composable(NavRoutes.Screen2.id){ Screen2(navigationController)}
-                        composable(NavRoutes.Screen3.id){ Screen3(navigationController)}
-                        composable("idScreen4/{name}"){ backStackEntry->
-                            Screen4(navigationController, backStackEntry.arguments?.getString("name")?:"")}
+                    NavHost(
+                        navController = navigationController,
+                        startDestination = NavRoutes.Screen1.id
+                    ) {
+                        composable(NavRoutes.Screen1.id) { Screen1(navigationController) }
+                        composable(NavRoutes.Screen2.id) { Screen2(navigationController) }
+                        composable(NavRoutes.Screen3.id) { Screen3(navigationController) }
+                        composable(NavRoutes.Screen4.id) { backStackEntry ->
+                            Screen4(
+                                navigationController,
+                                backStackEntry.arguments?.getString("name") ?: ""
+                            )
+                        }
 
-                        composable("idScreen5/{number}", arguments = listOf(navArgument("number"){type = NavType.IntType})){ backStackEntry->
-                            Screen5(navigationController, backStackEntry.arguments?.getInt("number")?:0)}
+                        composable(
+                            NavRoutes.Screen5.id,
+                            arguments = listOf(navArgument("number") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            Screen5(
+                                navigationController,
+                                backStackEntry.arguments?.getInt("number") ?: 0
+                            )
+                        }
+
+                        composable(
+                            NavRoutes.Screen6.id,
+                            arguments = listOf(navArgument("name") { defaultValue = "Pepe" })
+                        ) { backStackEntry ->
+                            Screen6(
+                                navigationController,
+                                backStackEntry.arguments?.getString("name")
+                            )
+                        }
+
                     }
                 }
+
             }
         }
     }
 }
 
 @Composable
-fun showDialogs(){
+fun showDialogs() {
     var show by rememberSaveable { mutableStateOf(false) }
     val context = LocalContext.current
-    val confirmation:()->Unit = {Toast.makeText(context, "Button Confirm", Toast.LENGTH_SHORT).show()}
+    val confirmation: () -> Unit =
+        { Toast.makeText(context, "Button Confirm", Toast.LENGTH_SHORT).show() }
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Button(onClick = { show = true }) {
             Text(text = "Show dialog")
@@ -111,15 +138,15 @@ fun showDialogs(){
         )
          */
 
-       // MyCustomDialog(show = show,  onDismiss = { show = false })
-        MyConfirmationDialog(show = show,  onDismiss = { show = false })
+        // MyCustomDialog(show = show,  onDismiss = { show = false })
+        MyConfirmationDialog(show = show, onDismiss = { show = false })
 
 
     }
 }
 
 @Composable
-fun showRecyclerViews(){
+fun showRecyclerViews() {
     //SimpleRecyclerView()
     //SuperHeroView()
     //SuperHeroGridView()

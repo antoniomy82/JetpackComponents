@@ -79,7 +79,7 @@ fun Screen4(navController: NavHostController, name: String) {
             text = name,
             modifier = Modifier
                 .align(Alignment.Center)
-                .clickable { navController.navigate("idScreen5/55555") })
+                .clickable { navController.navigate("idScreen5/555") })
     }
 }
 
@@ -91,7 +91,22 @@ fun Screen5(navController: NavHostController, number: Int) {
             .background(Color.Yellow)
     ) {
         Text(
-            text = number.toString(),
+            text = "Parámetro recibido pantalla anterior: $number",
+            modifier = Modifier
+                .align(Alignment.Center)
+                .clickable { navController.navigate(NavRoutes.Screen6.createRoute("Antonio")) })
+    }
+}
+
+@Composable
+fun Screen6(navController: NavHostController, name: String?) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Red)
+    ) {
+        Text(
+            text = "[Screen6] recibido pantalla anterior: $name",
             modifier = Modifier
                 .align(Alignment.Center)
                 .clickable { navController.navigate(NavRoutes.Screen1.id) })
